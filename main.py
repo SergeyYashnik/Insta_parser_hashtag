@@ -14,8 +14,8 @@ start_time = time.time()
 
 load_dotenv()
 
-USERNAME = os.getenv("USERNAME")
-PASSWORD = os.getenv("PASSWORD")
+INSTAGRAM_USERNAME = os.getenv("INSTAGRAM_USERNAME")
+INSTAGRAM_PASSWORD = os.getenv("INSTAGRAM_PASSWORD")
 
 options = webdriver.ChromeOptions()
 options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)")
@@ -30,8 +30,8 @@ try:
     username_input = driver.find_element(By.NAME, "username")
     password_input = driver.find_element(By.NAME, "password")
 
-    username_input.send_keys(USERNAME)
-    password_input.send_keys(PASSWORD)
+    username_input.send_keys(INSTAGRAM_USERNAME)
+    password_input.send_keys(INSTAGRAM_PASSWORD)
     password_input.send_keys(Keys.RETURN)
 
     time.sleep(5)
