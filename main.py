@@ -34,7 +34,7 @@ try:
     password_input.send_keys(INSTAGRAM_PASSWORD)
     password_input.send_keys(Keys.RETURN)
 
-    time.sleep(5)
+    time.sleep(10)
     print("✅ Успешный вход в Instagram!")
 except Exception as e:
     print("❌ Ошибка входа:", e)
@@ -46,8 +46,17 @@ url = f"https://www.instagram.com/explore/search/keyword/?q={hashtag}"
 driver.get(url)
 time.sleep(5)
 
-div_class_name = "xfcsdxf"
-div_element = driver.find_element(By.CLASS_NAME, div_class_name)  # Находим div с нужным классом
+# div_class_name = "xfcsdxf"
+# div_element = driver.find_element(By.CLASS_NAME, div_class_name)  # Находим div с нужным классом
+
+try:
+    div_element = driver.find_element(By.XPATH, "//main[@role='main']").find_elements(By.XPATH, "./div")[0].find_elements(By.XPATH, "./div")[1]
+except Exception as e:
+    print(f"⚠️ Ошибка: {e}")
+
+
+
+
 
 actions = ActionChains(driver)
 
